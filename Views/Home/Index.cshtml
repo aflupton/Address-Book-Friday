@@ -9,23 +9,20 @@
     <div class="addressBook">
 
 
-        @if (@Model.Count == 0)
-        {
-          <p>No contacts have been added. Submit contacts entries to see the list.</p>
-        }
-        @foreach(var contact in Model)
+        @foreach (var contact in Model)
         {
           <h4><strong>Contact #: @contact.GetId()</strong></h4>
-          <p><a href="/Contacts/@contact.GetId()">@contact.GetName()</a></p>
-          <p>@Html.ActionLink("Delete", "Delete", new { id=@car.GetId() })
+          <p><a href='/Contacts/@contact.GetId()'>@contact.GetName()</a></p>
+          <p>@Html.ActionLink("Delete", "Delete", new { id=@contact.GetId() })
           </p>
         }
 
     </div>
     <!-- end of address book div -->
-
-  <!-- <p><a href="/Contacts/Delete">Delete all contacts</a></p> -->
-
+  <!-- routing button -->
+  <form action="/Contacts/Delete" method="get">
+    <button type="submit" name="button">Delete all contacts</button>
+  </form>
   <!-- routing button -->
   <form action="/Contacts/Create" method="get">
     <button type="submit" name="button">Create a new entry</button>

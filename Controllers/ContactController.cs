@@ -7,20 +7,20 @@ namespace AddressBook.Controllers
 {
   public class ContactController : Controller
     {
-      [HttpGet("/Contacts")]
+      [HttpGet("/Home/Contacts")] //get index with all existing contacts
       public ActionResult Index()
       {
-        List<Contact> allContacts = Contact.GetAll();
-        return View(allContacts); //return index
+        List<Contacts> allContacts = Contacts.GetAll();
+        return View(allContacts); //return list of existing contacts to the index
       }
 
-      [HttpGet("/Contacts/Create")]
+      [HttpGet("/Contacts/Create")] //get entry form
       public ActionResult CreateForm()
       {
         return View("Form"); //return the input form
       }
 
-      [HttpPost("/Contacts/Add")]
+      [HttpPost("/Contacts/Add")] //post item to contacts
       public ActionResult SubmitForm()
       {
         string name = Request.Form["name"];
@@ -30,31 +30,24 @@ namespace AddressBook.Controllers
         string zip = Request.Form["zip"];
         string phone = Request.Form["phone"];
         string email = Request.Form["email"];
-        Contact newContact = new Contact(name, street, city, state, zip, phone, email);
+        Contacts newContact = new Contacts(name, street, city, state, zip, phone, email);
         newContact.Save();
-        List<Contact> allContacts = Contact.GetAll();
-        return RedirectToAction("Index", allContacts); //return new item to the list
+        List<Contacts> allContacts = Contacts.GetAll();
+        return View("Index", allContacts); //return new item to the list
       }
 
-      [HttpGet("/Contacts")]
-      public ActionResult ShowContacts()
-      {
-        List<Contact> allContacts = Contact.GetAll();
-        return View("Index", allContacts); //return list without adding a new item
-      }
-
-      [HttpGet("/Contacts/{id}")]
+      [HttpGet("/Contacts/{id}")] //get individual contact
       public ActionResult Details(int id)
       {
-        Contact contact = Contact.Find(id);
-        return View("ContactDetails", contact); //return contact detail on seperate page
+        Contacts contacts = Contacts.Find(id);
+        return View("ContactDetails", contacts); //return contact detail on seperate pages
       }
 
-      [HttpGet("/Delete")]
+      [HttpGet("/Delete")] //delete contacts
       public ActionResult Delete()
       {
-        Contact.ClearAll();
-        return View("Index", allContacts); //return list minus deleted item
+        Contacts.ClearAll();
+        return View("Index"); //return list minus deleted item
       }
     }
 }
