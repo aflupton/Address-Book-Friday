@@ -18,8 +18,6 @@
           count++;
           <h4><strong>Contact #: @contact.GetId()</strong></h4>
           <p><a href='/Contacts/@contact.GetId()'>@contact.GetName()</a></p>
-          <p>@Html.ActionLink("Delete", "Delete", new { id=@contact.GetId() })
-          </p>
         }
 
     </div>
@@ -35,3 +33,8 @@
 
 </div>
 <!-- end of container -->
+
+
+
+<!-- ignore -->
+<!-- <p>@Html.ActionLink("Delete", "Delete", new { id=@contact.GetId() }) -->
