@@ -7,21 +7,28 @@
   <h3>List of Contacts</h3>
   <br>
   <div class="row details">
+    <!-- 'getters' that collect private variables -->
     <div class="col-md-4">
-      <h3>@Model.GetName()</h3>
-      <h3>@Model.GetStreet()</h3>
-      <h3>@Model.GetCity()</h3>
-      <h3>@Model.GetState()</h3>
-      <h3>@Model.GetZip()</h3>
-      <h3>@Model.GetPhone()</h3>
-      <h3>@Model.GetEmail()</h3>
+      <h3>Contact name: <em>@Model.GetName()</em></h3>
+      <h3>Street Address: <em>@Model.GetStreet()</em></h3>
+      <h3>City: <em>@Model.GetCity()</em></h3>
+      <h3>State: <em>@Model.GetState()</em></h3>
+      <h3>Zip Code: <em>@Model.GetZip()</em></h3>
+      <h3>Phone number: <em>@Model.GetPhone()</em></h3>
+      <h3>Email: <em>@Model.GetEmail()</em></h3>
     </div>
+    <!-- end of column -->
+    <!-- routing buttons -->
     <div class="col-md-4">
-      <p><a href="/">Back to contact list</a></p>
-      <p><a href="/Contacts/Create">Create contact</a></p>
-
+      <form action="/" method="get">
+        <button type="submit" name="back">Back to contact list</button>
+      </form>
+      <form action="/Create" method="get">
+        <button type="submit" name="button">Create another contact</button>
+      </form>
     </div>
+    <!-- end of column -->
   </div>
-
-
+  <!-- end of row -->
 </div>
+<!-- end of container -->

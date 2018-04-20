@@ -7,20 +7,20 @@ namespace AddressBook.Controllers
 {
   public class ContactController : Controller
     {
-      [HttpGet("/")]
+      [HttpGet("/Contacts")]
       public ActionResult Index()
       {
         List<Contact> allContacts = Contact.GetAll();
-        return View(allContacts);
+        return View(allContacts); //return index
       }
 
       [HttpGet("/Contacts/Create")]
       public ActionResult CreateForm()
       {
-        return View("Form");
+        return View("Form"); //return the input form
       }
 
-      [HttpPost("/Contacts")]
+      [HttpPost("/Contacts/Add")]
       public ActionResult SubmitForm()
       {
         string name = Request.Form["name"];
@@ -31,23 +31,30 @@ namespace AddressBook.Controllers
         string phone = Request.Form["phone"];
         string email = Request.Form["email"];
         Contact newContact = new Contact(name, street, city, state, zip, phone, email);
-        // newContact.Save();
+        newContact.Save();
         List<Contact> allContacts = Contact.GetAll();
-        return RedirectToAction("Contacts", allContacts);
+        return RedirectToAction("Index", allContacts); //return new item to the list
+      }
+
+      [HttpGet("/Contacts")]
+      public ActionResult ShowContacts()
+      {
+        List<Contact> allContacts = Contact.GetAll();
+        return View("Index", allContacts); //return list without adding a new item
       }
 
       [HttpGet("/Contacts/{id}")]
       public ActionResult Details(int id)
       {
         Contact contact = Contact.Find(id);
-        return View(contact);
+        return View("ContactDetails", contact); //return contact detail on seperate page
       }
 
       [HttpGet("/Delete")]
       public ActionResult Delete()
       {
         Contact.ClearAll();
-        return View("Contacts", allContacts);
+        return View("Index", allContacts); //return list minus deleted item
       }
     }
 }

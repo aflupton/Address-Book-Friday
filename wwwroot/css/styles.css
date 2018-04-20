@@ -2,3 +2,19 @@ body {
   padding-top: 50px;
   padding: 20px;
 }
+
+div#footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    color: #CCC;
+    background: #333;
+    padding: 8px;
+}
+
+div#header {
+  position: fixed;
+  padding: 20px;
+  
+}
