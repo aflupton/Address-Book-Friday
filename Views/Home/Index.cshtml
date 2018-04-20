@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+  <h1>Address Book</h1>
+  <h3><em>View existing addresses, create new entries, and delete old entries.</h3>
+    <br>
+    <div class="addressBook">
+      <div  class="loop">@foreach(var contact in Model)
+        {
+          <p><a href="/Contacts/@contact.GetId()">@contact.GetName()</a></p>
+          <p><a href="/Contacts/Delete">Delete Contact</a></p>
+        }
+
+      </p>
+
+    </div>
+
+
+  <p><a href="/Contacts/Create">Create a new contact entry.</a></p>
+
+</div>

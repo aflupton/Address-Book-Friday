@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+  <h1>Address Book</h1>
+  <h3>List of Contacts</h3>
+  <br>
+  <div class="row details">
+    <div class="col-md-4">
+      <h3>@Model.GetName()</h3>
+      <h3>@Model.GetStreet()</h3>
+      <h3>@Model.GetCity()</h3>
+      <h3>@Model.GetState()</h3>
+      <h3>@Model.GetZip()</h3>
+      <h3>@Model.GetPhone()</h3>
+      <h3>@Model.GetEmail()</h3>
+    </div>
+    <div class="col-md-4">
+      <p><a href="/">Back to contact list</a></p>
+      <p><a href="/Contacts/Create">Create contact</a></p>
+
+    </div>
+  </div>
+
+
+</div>

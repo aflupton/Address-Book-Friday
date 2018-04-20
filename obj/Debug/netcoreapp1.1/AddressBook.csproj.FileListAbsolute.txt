@@ -1,0 +1,8 @@
+/Users/Guest/Desktop/friday/bin/Debug/netcoreapp1.1/AddressBook.deps.json
+/Users/Guest/Desktop/friday/bin/Debug/netcoreapp1.1/AddressBook.runtimeconfig.json
+/Users/Guest/Desktop/friday/bin/Debug/netcoreapp1.1/AddressBook.runtimeconfig.dev.json
+/Users/Guest/Desktop/friday/obj/Debug/netcoreapp1.1/AddressBook.AssemblyInfo.cs
+/Users/Guest/Desktop/friday/bin/Debug/netcoreapp1.1/AddressBook.dll
+/Users/Guest/Desktop/friday/bin/Debug/netcoreapp1.1/AddressBook.pdb
+/Users/Guest/Desktop/friday/obj/Debug/netcoreapp1.1/AddressBook.dll
+/Users/Guest/Desktop/friday/obj/Debug/netcoreapp1.1/AddressBook.pdb

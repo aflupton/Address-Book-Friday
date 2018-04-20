@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+  <h1>Address Book</h1>
+  <h3>Enter details into the form to create a new contact entry:</h3>
+  <br>
+  <form class="form-control" action="/Add" method="post">
+    <label for="name"></label>
+    <input type="text" name="name" placeholder=">">
+    <label for="street"></label>
+    <input type="text" name="street" placeholder=">">
+    <label for="city"></label>
+    <input type="text" name="city" placeholder=">">
+    <label for="state"></label>
+    <input type="text" name="state" placeholder=">">
+    <label for="zip"></label>
+    <input type="text" name="zip" placeholder=">">
+    <label for="phone"></label>
+    <input type="number" name="phone" placeholder=">">
+    <label for="email"></label>
+    <input type="email" name="email" placeholder=">">
+
+    <button type="submit" name="button">Submit Entry</button>
+  </form>
+
+  <p><a href="/">Return to list</a></p>
+
+
+</div>
