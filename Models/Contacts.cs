@@ -17,15 +17,15 @@ namespace AddressBook.Models
     private static List<Contacts> _instances = new List<Contacts> {};
 
     //constructor
-    public Contacts(string name, string street, string city, string state, string zip, string phone, string email)
+    public Contacts(string Name, string Street, string City, string State, string Zip, string Phone, string Email)
       {
-        _name = name;
-        _street = street;
-        _city = city;
-        _state = state;
-        _zip = zip;
-        _phone = phone;
-        _email = email;
+        _name = Name;
+        _street = Street;
+        _city = City;
+        _state = State;
+        _zip = Zip;
+        _phone = Phone;
+        _email = Email;
         _instances.Add(this);
         _id = _instances.Count;
       }
@@ -114,12 +114,6 @@ namespace AddressBook.Models
       _email = newEmail;
     }
 
-    //get ID value
-    public int GetId()
-    {
-      return _id + 1;
-    }
-
     //save contact instances to list
     public void Save()
     {
@@ -132,10 +126,20 @@ namespace AddressBook.Models
       return _instances;
     }
 
-    //clear list of instances
-    public static void ClearAll()
+    //get ID value
+    public int GetId()
     {
-      _instances.Clear();
+      return _id + 1;
+    }
+
+    //clear object instance at specific id
+    public static void RemoveContact(int removeId)
+    {
+      _instances.RemoveAt(removeId);
+      for(int i=0; i<_instances.Count; i++)
+      {
+        _instances[i]._id = i + 1;
+      }
     }
 
     //declare method for finding instances by id

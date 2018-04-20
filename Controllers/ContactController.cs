@@ -7,7 +7,7 @@ namespace AddressBook.Controllers
 {
   public class ContactController : Controller
     {
-      [HttpGet("/Home/Contacts")] //get index with all existing contacts
+      [HttpGet("/Contacts")] //get index with all existing contacts
       public ActionResult Index()
       {
         List<Contacts> allContacts = Contacts.GetAll();
@@ -44,9 +44,9 @@ namespace AddressBook.Controllers
       }
 
       [HttpGet("/Delete")] //delete contacts
-      public ActionResult Delete()
+      public ActionResult Delete(int id)
       {
-        Contacts.ClearAll();
+        Contacts.RemoveContact(id);
         return View("Index"); //return list minus deleted item
       }
     }

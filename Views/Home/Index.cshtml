@@ -8,9 +8,14 @@
     <br>
     <div class="addressBook">
 
-
-        @foreach (var contact in Model)
+      @if(@Model != null)
         {
+          <h3>You haven't entered any addresses.</h3>
+        }
+      @{var count = 0;}
+      @foreach(var contact in Model)
+        {
+          count++;
           <h4><strong>Contact #: @contact.GetId()</strong></h4>
           <p><a href='/Contacts/@contact.GetId()'>@contact.GetName()</a></p>
           <p>@Html.ActionLink("Delete", "Delete", new { id=@contact.GetId() })
